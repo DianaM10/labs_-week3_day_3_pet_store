@@ -11,5 +11,10 @@ class PetStore
     @stock_type = options['stock_type']
   end
 
+  def save()
+    sql ="INSERT INTO pet_store (name, address, stock_type) VALUES ('#{@name}', '#{@address}', '#{@stock_type}'') RETURNING *"
+    pet_store = SqlRunner.run( sql ).first
+    @id = pet_store['id']
+  end
 
 end
