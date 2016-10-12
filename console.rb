@@ -16,5 +16,15 @@ pet2.save()
 pet_store1.all_pets()
 pet2.show_store()
 
+PetStore.find_store(1)
+
+# pet_store1.update_pet_store( { 'name' => "Edinburgh", 'address' => "Lothian Road", 'stock_type' => "Equine"} )
+Pet.find_pet(2)
+
+Pet.delete_pet(1)
+
+# PetStore.delete_store(1)
+Pet.update_pet( { 'name' => "Luna", 'type' => "Equine", 'pet_store_id' => pet_store1.id}, 2)
+
 binding.pry
 nil

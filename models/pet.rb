@@ -24,5 +24,28 @@ class Pet
     return result
   end
 
+  def self.find_pet(pet_id)
+    sql = "SELECT * FROM pets WHERE id = #{pet_id}"
+    pet = SqlRunner.run( sql ).first
+    result = Pet.new(pet)
+  end
+
+  def self.delete_pet(pet_id)
+    sql = "DELETE FROM pets WHERE id = #{pet_id}"
+    pet = SqlRunner.run( sql )
+  end
+
+    def self.update_pet(new_details, pet_id)
+      sql = "UPDATE pets SET 
+          name = '#{@name}',
+          type = '#{@type}',
+          pet_store_id = '#{@pet_store_id}',
+          WHERE id = #{pet_id};"
+      update_pet = SqlRunner.run( sql )
+      binding.pry
+      result = Pet.new(update_pet)
+      binding.pry
+    end
+
 
 end
